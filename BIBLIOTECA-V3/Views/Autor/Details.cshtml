@@ -1,5 +1,6 @@
 ﻿@model CRUD_BIBLIOTECA.Models.Autor
 
+
 @{
     ViewBag.Title = "Detalles del Autor";
 }
@@ -10,8 +11,8 @@
     </div>
 
     <div class="card shadow-lg border-0 p-4">
-        <h4 class="text-secondary">📖 @Model.Nombre</h4>
-        <p class="lead">Aquí puedes ver más información sobre este autor.</p>
+        <h4 class="text-secondary">📖 Nombre: @Model.Nombre</h4>
+
 
         <div class="text-center mt-4">
             <a href="@Url.Action("Edit", new { id = Model.AutorID })" class="btn btn-warning">✏️ Editar</a>

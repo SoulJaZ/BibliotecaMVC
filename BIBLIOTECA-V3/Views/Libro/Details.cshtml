@@ -1,24 +1,26 @@
 ﻿@model CRUD_BIBLIOTECA.Models.Libro
 
 @{
-    ViewBag.Title = "Eliminar Libro";
+    ViewBag.Title = "Detalles del Libro";
 }
 
-<main class="container my-5 text-center">
-    <h1 class="text-danger">⚠️ Eliminar Libro</h1>
-    <p class="lead text-secondary">¿Estás seguro de que deseas eliminar este libro?</p>
+<main class="container my-5">
+    <div class="text-center">
+        <h1 class="display-4 text-primary">📖 Detalles del Libro</h1>
+    </div>
 
     <div class="card shadow-lg border-0 p-4">
-        <h4 class="text-primary">@Model.Titulo</h4>
-        <p class="text-muted">Autor: @Model.Autor.Nombre</p>
+        <h4 class="text-secondary">@Model.Titulo</h4>
 
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-            <div class="mt-4">
-                <button type="submit" class="btn btn-danger">🗑️ Eliminar</button>
-                <a href="@Url.Action("Index")" class="btn btn-outline-secondary">❌ Cancelar</a>
-            </div>
-        }
+
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>📚 Título:</strong> @Model.Titulo</li>
+            <li class="list-group-item"><strong>✍️ Autor:</strong> @Model.Autor.Nombre</li>
+        </ul>
+
+        <div class="text-center mt-4">
+            <a href="@Url.Action("Edit", new { id = Model.LibroID })" class="btn btn-warning">✏️ Editar</a>
+            <a href="@Url.Action("Index")" class="btn btn-outline-primary">🏠 Volver</a>
+        </div>
     </div>
 </main>
