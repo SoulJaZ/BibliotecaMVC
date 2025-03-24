@@ -90,3 +90,4 @@ C:\Users\DaSou\source\repos\.NET\BIBLIOTECA-V3\BIBLIOTECA-V3\obj\Debug\BIBLIOTEC
 C:\Users\DaSou\source\repos\.NET\BIBLIOTECA-V3\BIBLIOTECA-V3\obj\Debug\BIBLIOTECA-V3.pdb
 C:\Users\DaSou\source\repos\.NET\BIBLIOTECA-V3\BIBLIOTECA-V3\obj\Debug\BIBLIOTECA_V3.Migrations.InitialCreate.resources
 C:\Users\DaSou\source\repos\.NET\BIBLIOTECA-V3\BIBLIOTECA-V3\obj\Debug\BIBLIOTECA-V3.csproj.GenerateResource.cache
+C:\Users\DaSou\source\repos\.NET\BIBLIOTECA-V3\BIBLIOTECA-V3\obj\Debug\BIBLIOTECA_V3.Migrations.AddUniqueConstraintToLibro.resources

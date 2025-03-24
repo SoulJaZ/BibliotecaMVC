@@ -11,6 +11,7 @@ namespace CRUD_BIBLIOTECA.Models
 
         [Required]
         [StringLength(255)]
+        [Index(IsUnique = true)] // Restringe que los títulos sean únicos
         public string Titulo { get; set; }
 
         [Required]

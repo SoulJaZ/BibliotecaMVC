@@ -137,6 +137,10 @@
     <Compile Include="Migrations\202503240505351_InitialCreate.Designer.cs">
       <DependentUpon>202503240505351_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202503241225295_AddUniqueConstraintToLibro.cs" />
+    <Compile Include="Migrations\202503241225295_AddUniqueConstraintToLibro.Designer.cs">
+      <DependentUpon>202503241225295_AddUniqueConstraintToLibro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Autores.cs" />
     <Compile Include="Models\BibliotecaContext.cs" />
@@ -237,6 +241,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202503240505351_InitialCreate.resx">
       <DependentUpon>202503240505351_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503241225295_AddUniqueConstraintToLibro.resx">
+      <DependentUpon>202503241225295_AddUniqueConstraintToLibro.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

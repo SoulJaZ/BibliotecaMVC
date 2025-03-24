@@ -48,15 +48,39 @@ namespace BIBLIOTECA_V3.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "AutorID,Nombre")] Autor autor)
         {
+            if (autor.Nombre != null)
+            {
+                string nombreNormalizado = autor.Nombre.Trim().ToLower();
+
+                // Verificar si el autor ya existe en la base de datos
+                bool autorExiste = db.Autores.Any(a => a.Nombre.ToLower() == nombreNormalizado);
+
+                if (autorExiste)
+                {
+                    ModelState.AddModelError("Nombre", "⚠️ Ya existe un autor con este nombre.");
+                }
+            }
+
             if (ModelState.IsValid)
             {
                 db.Autores.Add(autor);
-                db.SaveChanges();
+
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", "❌ Error al guardar. Intenta nuevamente.");
+                    return View(autor);
+                }
+
                 return RedirectToAction("Index");
             }
 
             return View(autor);
         }
+
 
         // GET: Autor/Edit/5
         public ActionResult Edit(int? id)

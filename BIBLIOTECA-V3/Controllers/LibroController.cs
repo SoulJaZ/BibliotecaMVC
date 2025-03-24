@@ -50,6 +50,19 @@ namespace BIBLIOTECA_V3.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "LibroID,Titulo,AutorID")] Libro libro)
         {
+            if (libro.Titulo != null)
+            {
+                string tituloNormalizado = libro.Titulo.Trim().ToLower();
+
+                // Verificar si el libro ya existe en la base de datos
+                bool libroExiste = db.Libros.Any(l => l.Titulo.ToLower() == tituloNormalizado);
+
+                if (libroExiste)
+                {
+                    ModelState.AddModelError("Titulo", "⚠️ Ya existe un libro con este título.");
+                }
+            }
+
             if (ModelState.IsValid)
             {
                 db.Libros.Add(libro);
