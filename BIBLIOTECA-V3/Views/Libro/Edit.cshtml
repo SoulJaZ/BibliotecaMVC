@@ -1,0 +1,40 @@
+﻿@model CRUD_BIBLIOTECA.Models.Libro
+
+@{
+    ViewBag.Title = "Editar Libro";
+}
+
+<main class="container my-5">
+    <div class="text-center">
+        <h1 class="display-4 text-primary">✏️ Editar Libro</h1>
+    </div>
+
+    <div class="card shadow-lg border-0 p-4">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.LibroID)
+
+            <div class="mb-3">
+                <label class="form-label">Título</label>
+                @Html.EditorFor(model => model.Titulo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Titulo, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Autor</label>
+                @Html.DropDownList("AutorID", null, "Selecciona un autor", new { @class = "form-select" })
+                @Html.ValidationMessageFor(model => model.AutorID, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-success">✅ Guardar Cambios</button>
+                <a href="@Url.Action("Index")" class="btn btn-outline-primary">🏠 Volver</a>
+            </div>
+        }
+    </div>
+</main>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

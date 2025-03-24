@@ -1,0 +1,23 @@
+﻿@model CRUD_BIBLIOTECA.Models.Autor
+
+@{
+    ViewBag.Title = "Eliminar Autor";
+}
+
+<main class="container my-5 text-center">
+    <h1 class="text-danger">⚠️ Eliminar Autor</h1>
+    <p class="lead text-secondary">¿Estás seguro de que deseas eliminar este autor?</p>
+
+    <div class="card shadow-lg border-0 p-4">
+        <h4 class="text-primary">@Model.Nombre</h4>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="mt-4">
+                <button type="submit" class="btn btn-danger">🗑️ Eliminar</button>
+                <a href="@Url.Action("Index")" class="btn btn-outline-secondary">❌ Cancelar</a>
+            </div>
+        }
+    </div>
+</main>

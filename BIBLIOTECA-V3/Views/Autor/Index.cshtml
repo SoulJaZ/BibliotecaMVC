@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CRUD_BIBLIOTECA.Models.Autor>
+
+@{
+    ViewBag.Title = "Lista de Autores";
+}
+
+<main class="container my-5">
+    <div class="text-center">
+        <h1 class="display-4 text-primary">📖 Gestión de Autores</h1>
+        <p class="lead text-secondary">Administra y explora los autores registrados en la biblioteca.</p>
+    </div>
+
+    <div class="text-end my-4">
+        <a href="@Url.Action("Create")" class="btn btn-success">➕ Agregar Autor</a>
+    </div>
+
+    <div class="row">
+        @foreach (var autor in Model)
+        {
+            <div class="col-md-4">
+                <div class="card shadow-lg border-0 mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title text-primary">@autor.Nombre</h4>
+
+                        <div class="d-flex justify-content-between">
+                            <a href="@Url.Action("Edit", new { id = autor.AutorID })" class="btn btn-warning">✏️ Editar</a>
+                            <a href="@Url.Action("Details", new { id = autor.AutorID})" class="btn btn-info">📄 Detalles</a>
+                            <a href="@Url.Action("Delete", new { id = autor.AutorID })" class="btn btn-danger">🗑️ Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-warning text-center mt-4">
+            📌 No hay autores registrados. ¡Agrega uno nuevo!
+        </div>
+    }
+
+    <div class="mt-4 text-center">
+        <a href="@Url.Action("Index", "Home")" class="btn btn-outline-primary">🏠 Volver al Inicio</a>
+    </div>
+</main>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Georgia', serif;
+    }
+
+    .card {
+        transition: transform 0.3s ease-in-out;
+    }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+</style>
